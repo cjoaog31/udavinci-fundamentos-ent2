@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Actividad 2 - Números</title>
+    <link rel="stylesheet" type="text/css" href="styles_numeros.css" />
+    <script src="numeros.js" defer></script>
+  </head>
+  <body>
+    <div>
+      <h1>Actividad 2 - Números</h1>
+      <!-- Sección de Lógica -->
+      <section>
+        <h2>Lógica</h2>
+        <article class="listInput">
+          <p>
+            Ingrese un listado de números separado por comas, estos serán
+            utilizados para los ejercicios de la primera sección.
+          </p>
+          <textarea
+            id="listadoNumeros1"
+            name="listadoNumeros1"
+            rows="4"
+            cols="50"
+            placeholder="Ejemplo: 1, 2, 3, 4, 5"
+          ></textarea>
+          <button id="updateFirstList">Actualizar listado</button>
+          <span hidden
+            >Listado actual:
+            <span id="currentList1">N/A</span>
+          </span>
+        </article>
+        <article>
+          <h3>Ejercicio 1 - Min, Max y Avg</h3>
+          <div>
+            <div>
+              <h4>Min:</h4>
+              <span id="minValue">N/A</span>
+            </div>
+            <div>
+              <h4>Max:</h4>
+              <span id="maxValue">N/A</span>
+            </div>
+            <div>
+              <h4>Avg:</h4>
+              <span id="avgValue">N/A</span>
+            </div>
+          </div>
+        </article>
+        <article>
+          <h3>Ejercicio 2 - Valores unicos</h3>
+          <div>
+            <div>
+              <h4>Listado de valores unicos:</h4>
+              <span id="uniqueValues">N/A</span>
+            </div>
+          </div>
+        </article>
+        <article>
+          <h3>Ejercicio 4 - Moda</h3>
+          <div>
+            <h4>Moda:</h4>
+            <span id="modeValue">N/A</span>
+          </div>
+        </article>
+        <article class="listInput">
+          <p>
+            Ingrese un segundo listado de números separado por comas, estos
+            serán utilizados en conjunto con los números del primer listado
+            durante los ejercicios que requieran dos arreglos.
+          </p>
+          <textarea
+            id="listadoNumeros2"
+            name="listadoNumeros2"
+            rows="4"
+            cols="50"
+            placeholder="Ejemplo: 1, 2, 3, 4, 5"
+          ></textarea>
+          <button id="updateSecondList">Actualizar listado</button>
+          <span hidden
+            >Listado actual:
+            <span id="currentList2">N/A</span>
+          </span>
+        </article>
+        <article>
+          <h3>Ejercicio 3 - Join de arreglos y ordenamiento</h3>
+          <div>
+            <h4>Arreglo unificado y ordenado:</h4>
+            <span id="joinedOrdered">N/A</span>
+          </div>
+        </article>
+        <article>
+          <h3>Ejercicio 5 - Comparar arreglos</h3>
+          <div>
+            <h4>Listado de valores menores ordenados:</h4>
+            <span id="comparedValues">N/A</span>
+          </div>
+        </article>
+        <article>
+          <h3>Ejercicio 6 - Matrices</h3>
+          <div>
+            <h4>Diagonal de la matriz:</h4>
+            <span id="diagonalValues">N/A</span>
+          </div>
+          <div id="matrixContainer" hidden ></div>
+          <small>
+            *Este ejercicio solo utiliza los n primeros valores de los dos
+            arreglos donde n es el tamaño minimo entre los dos; posteriormente los transforma
+            en una matriz repitiendo cada lista hasta crear una matriz cuadrada
+          </small>
+        </article>
+      </section>
+      <!-- Sección de AJAX -->
+      <section>
+        <h2>AJAX</h2>
+        <article>
+          <h3>Ejercicio 1 - Consumo de API XHR</h3>
+          <div>
+            <h4>Respuesta de la API:</h4>
+          <button id="xhrRequest">Obtener datos de API</button>
+          </div>
+          <p id="xhrResponse" class="JSONOutput">N/A</p>
+        </article>
+        <article>
+          <h3>Ejercicio 2 - Consumo de API Fetch</h3>
+          <div>
+            <h4>Keys de la respuesta de la API:</h4>
+          <button id="fetchRequest">Obtener datos de API</button>
+          </div>
+          <p id="fetchResponse" class="JSONOutput">N/A</p>
+        </article>
+        <article>
+          <h3>Ejercicio 3 - Consumo de API Promises</h3>
+          <div>
+            <h4>Values de la respuesta de la API:</h4>
+          <button id="promiseRequest">Obtener datos de API</button>
+          </div>
+          <p id="promiseResponse" class="JSONOutput">N/A</p>
+        </article>
+        <article>
+          <h3>Ejercicio 4 - Consumo de API Await y Async</h3>
+          <div>
+            <h4>Cantidad de registros en la respuesta de la API:</h4>
+          <button id="asyncRequest">Obtener datos de API</button>
+          </div>
+          <p id="asyncResponse" class="JSONOutput">N/A</p>
+        </article>
+        <article>
+          <h3>Ejercicio 5 - Consumo de API abierto</h3>
+          <div>
+            <h4>Registro completo:</h4>
+          <button id="openRequest">Obtener datos de API</button>
+          </div>
+          <p id="openResponse" class="JSONOutput">N/A</p>
+        </article>
+        
+      </section>
+    </div>
+    <script>
+      const buttons = document.querySelectorAll("button");
+      buttons.forEach((button) => {
+        let timeoutId;
+
+        button.addEventListener("click", () => {
+          button.classList.add("pressed");
+
+          clearTimeout(timeoutId);
+          timeoutId = setTimeout(() => {
+            button.classList.remove("pressed");
+          }, 300);
+        });
+      });
+    </script>
+  </body>
+</html>
